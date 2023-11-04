@@ -1,6 +1,5 @@
 package sistemaPago;
 
-import java.awt.Menu;
 import java.util.*;
 
 /*
@@ -39,27 +38,57 @@ El primer dígito indica el tipo de tarjeta:
 
 
 public class Principal {
-
+	/* Variables */
+	// Variable para el scanner
+	static Scanner sc = new Scanner(System.in); // Variable para crear el escaner
+	// Variable para la opción selecionada
+	static String op;
+	
 	public static void main(String[] args) {
-		/* Variables */
-		// Variable para el scanner
-		Scanner sc = new Scanner(System.in); // Variable para crear el escaner
-		// Variable para la opción selecionada
-		int op;
-		
 		menu();
-		
-
 	}
+	
 	private static void menu() {
-		System.out.println("");
 		System.out.println(""
 				+ "__________ Método de pago __________"
-				+ "\n\tSelecciona el método de pago"
+				+ "\nSelecciona el método de pago"
 				+ "\n1. Efectivo"
-				+ "\n2. Targeta"
+				+ "\n2. Tarjeta"
 				+ "\n0. Salir");
+		op = sc.nextLine();
+		
+		if (op.equals("1") || op.equals("2")) {
+			switch (op) {
+			case "1":
+				efectivo();
+				break;
+			case "2":
+				tarjeta();
+			case "0":
+				System.out.println("Saliendo........");
+				break;
+			default:
+				break;
+			}
+		} else {
+			System.err.println("Error en la selección");
+			menu();
+		}
+				
+		
 	}
+		
+		
+		private static void efectivo() {
+			System.out.println("Efectivo");
+			menu();
+		}
+		private static void tarjeta() {
+			System.out.println("Tarjeta");
+			menu();
+		}
+
+	
 	
 
 }
