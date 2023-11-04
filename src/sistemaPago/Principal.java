@@ -43,6 +43,10 @@ public class Principal {
 	static Scanner sc = new Scanner(System.in); // Variable para crear el escaner
 	// Variable para la opción selecionada
 	static String op;
+	// Variable que almacena el importe a pagar y a devolver
+	static double cuentaCliente,devolucion,efectivoCliente,cantidadADevolver;
+	// Valores de los billetes disponible
+	static int[] valoresBilletes = {50, 20, 10, 5, 1}; 
 	
 	public static void main(String[] args) {
 		menu();
@@ -73,19 +77,47 @@ public class Principal {
 		} else {
 			System.err.println("Error en la selección");
 			menu();
-		}
-				
-		
+		}		
 	}
 		
 		
 		private static void efectivo() {
 			System.out.println("Efectivo");
-			menu();
+
+			while (true) {
+	            System.out.print("Introduce la cantidad a pagar\nCantidad: ");
+	            String inputPagar = sc.nextLine();
+	            System.out.print("Ahora introduce el efectivo\nEfectivo: ");
+	            String inputEfectivo = sc.nextLine();
+	            try {
+	                cuentaCliente = Double.parseDouble(inputPagar);
+	                efectivoCliente = Double.parseDouble(inputEfectivo);
+	                cantidadADevolver = efectivoCliente - cuentaCliente;
+	                break;
+	            } catch (NumberFormatException e) {
+	                System.err.println("No es un número válido. Inténtalo de nuevo.");
+	            }
+	        }
+
+			 double[] valores = {100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01};
+			 	System.out.println("Devolución: " + cantidadADevolver);
+		        System.out.println("La devolución con la cantidad mínima de billetes y monedas es:");
+
+		        for (double valor : valores) {
+		            int cantidad = (int)(cantidadADevolver / valor);
+		            if (cantidad > 0) {
+		                System.out.println(cantidad + " " + (valor >= 1 ? "billetes" : "monedas") + " de " + valor + " euros");
+		                cantidadADevolver -= cantidad * valor;
+		            }
+
+	        sc.close();
+		        }
+			
 		}
+
 		private static void tarjeta() {
 			System.out.println("Tarjeta");
-			menu();
+//			menu();
 		}
 
 	
