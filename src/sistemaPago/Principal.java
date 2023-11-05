@@ -61,15 +61,17 @@ public class Principal {
 				+ "\n0. Salir");
 		op = sc.nextLine();
 		
-		if (op.equals("1") || op.equals("2")) {
+		if (op.equals("1") || op.equals("2") || op.equals("0")) {
 			switch (op) {
 			case "1":
 				efectivo();
+				menu();
 				break;
 			case "2":
 				tarjeta();
+				menu();
 			case "0":
-				System.out.println("Saliendo........");
+				System.out.println("Saliendo...");
 				break;
 			default:
 				break;
@@ -82,9 +84,9 @@ public class Principal {
 		
 		
 		private static void efectivo() {
-			System.out.println("Efectivo");
 
 			while (true) {
+				System.out.println("Efectivo");
 	            System.out.print("Introduce la cantidad a pagar\nCantidad: ");
 	            String inputPagar = sc.nextLine();
 	            System.out.print("Ahora introduce el efectivo\nEfectivo: ");
@@ -99,18 +101,16 @@ public class Principal {
 	            }
 	        }
 
-			 double[] valores = {100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01};
-			 	System.out.println("Devolución: " + cantidadADevolver);
-		        System.out.println("La devolución con la cantidad mínima de billetes y monedas es:");
+			 double[] valores = {500,200,100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01};
+			 	System.out.println("Devolución: " + cantidadADevolver + "\n");
+		        System.out.println("La devolución con la cantidad mínima de billetes y monedas es:\n");
 
 		        for (double valor : valores) {
 		            int cantidad = (int)(cantidadADevolver / valor);
 		            if (cantidad > 0) {
 		                System.out.println(cantidad + " " + (valor >= 1 ? "billetes" : "monedas") + " de " + valor + " euros");
 		                cantidadADevolver -= cantidad * valor;
-		            }
-
-	        sc.close();
+		            }  
 		        }
 			
 		}
