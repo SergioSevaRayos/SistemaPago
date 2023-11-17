@@ -189,12 +189,18 @@ public class Principal {
 		}else if (masterCard) {
 			vis = "MasterCard";
 		}
-		System.out.println("\n-------------------------------------------------\n"
-				+ "Resumen de la operación\n"
-				+ "Tipo --> " + vis + "\n"
-				+ "Cantidad a abonar: "  + inputPagar + " €" + "\n"
-				+ "Número de tarjeta: " + entradaTarj + "\n"
-				+ "Estado --> PAGO REALIZADO\n"
-				+ "-------------------------------------------------");
+		System.out.println(""
+				+ "\n\t	=======================\n"
+				+ "\t	RESUMEN DE LA OPERACIÓN\n"
+				+ "\t	=======================\n"
+				+ "<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
+				+ "Tipo 			--> " + vis + "\n"
+				+ "<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
+				+ "Cantidad a abonar 	--> "  + inputPagar + " €" + "\n"
+				+ "<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
+				+ "Número de tarjeta 	--> " + entradaTarj + "\n"
+				+ "<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
+				+ "Estado 			--> PAGO REALIZADO\n"
+				+ "<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 	}
 }
